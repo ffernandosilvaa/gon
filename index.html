@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Oficina do Corpo — Estética, Recovery & Performance | São Luís, MA</title>
+<meta name="description" content="Oficina do Corpo, por Manu Gonçalves. Um novo conceito em estética e fisioterapia em São Luís. Leveza, ciência e presença em cada sessão.">
+<meta property="og:title" content="Oficina do Corpo — Estética, Recovery & Performance">
+<meta property="og:description" content="Um novo conceito em cuidado corporal em São Luís, MA.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FDFBF7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,300;0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Oficina do Corpo",
+  "description": "Estética, Recovery e Performance. Um novo conceito em cuidado corporal em São Luís, MA.",
+  "address": { "@type": "PostalAddress", "addressLocality": "São Luís", "addressRegion": "MA", "addressCountry": "BR" },
+  "founder": { "@type": "Person", "name": "Manu Gonçalves" },
+  "sameAs": ["https://www.instagram.com/oficinadocorpo.slz"]
+}
+</script>
+<style>
+:root{
+  --pearl:#FDFBF7;
+  --pearl-deep:#F7F1E8;
+  --sand:#F3E7D8;
+  --rose:#EAD1C4;
+  --rose-deep:#DDB9A8;
+  --sage:#B7C2AC;
+  --sage-deep:#96A587;
+  --gold:#C9A567;
+  --gold-deep:#AD8848;
+  --gold-light:#E4CFA0;
+  --ink:#2E2822;
+  --ink-soft:#5C5248;
+  --white:#FFFFFF;
+  --ease:cubic-bezier(.22,.85,.32,1);
+  --ease-soft:cubic-bezier(.4,.0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+}
+body{
+  background:var(--pearl);
+  color:var(--ink);
+  font-family:'Manrope',sans-serif;
+  font-weight:400;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  cursor:none;
+}
+@media (hover:none), (pointer:coarse){ body{cursor:auto;} }
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+::selection{background:var(--gold-light); color:var(--ink);}
+
+.eyebrow{
+  font-family:'Manrope',sans-serif;
+  font-size:11px; font-weight:600;
+  letter-spacing:0.28em;
+  text-transform:uppercase;
+  color:var(--gold-deep);
+  display:flex; align-items:center; gap:12px;
+}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+h1,h2,h3,h4{
+  font-family:'Bodoni Moda',serif;
+  font-weight:400;
+  line-height:1.06;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+}
+.wrap{max-width:1240px;margin:0 auto;padding:0 44px;}
+@media(max-width:768px){.wrap{padding:0 24px;}}
+
+/* ===== Ambient background blobs (the "alive" layer) ===== */
+.ambient{position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none;}
+.blob{position:absolute; border-radius:50%; filter:blur(70px); opacity:.55; will-change:transform;}
+.blob1{width:640px; height:640px; top:-220px; left:-160px; background:radial-gradient(circle at 35% 35%, var(--rose), transparent 70%); animation:float1 26s ease-in-out infinite;}
+.blob2{width:560px; height:560px; top:20%; right:-220px; background:radial-gradient(circle at 60% 40%, var(--gold-light), transparent 70%); animation:float2 32s ease-in-out infinite;}
+.blob3{width:520px; height:520px; bottom:-160px; left:12%; background:radial-gradient(circle at 50% 50%, var(--sage), transparent 70%); animation:float3 30s ease-in-out infinite; opacity:.35;}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(60px,90px) scale(1.12);}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-80px,60px) scale(0.9);}}
+@keyframes float3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(50px,-70px) scale(1.08);}}
+
+/* Custom cursor - soft glow */
+.cursor{
+  position:fixed; top:0; left:0; width:10px; height:10px; border-radius:50%;
+  background:var(--gold-deep); pointer-events:none; z-index:9999;
+  transform:translate(-50%,-50%); transition:width .3s var(--ease), height .3s var(--ease), opacity .3s;
+}
+.cursor-ring{
+  position:fixed; top:0; left:0; width:44px; height:44px; border-radius:50%;
+  border:1px solid var(--gold); pointer-events:none; z-index:9998; opacity:.6;
+  transform:translate(-50%,-50%); transition:width .4s var(--ease), height .4s var(--ease), opacity .4s, border-color .4s, background .4s;
+}
+.cursor-ring.hover{width:78px;height:78px; background:rgba(201,165,103,.08); border-color:var(--gold-deep);}
+@media (hover:none), (pointer:coarse){ .cursor,.cursor-ring{display:none;} }
+
+/* Loader */
+#loader{
+  position:fixed; inset:0; background:var(--pearl); z-index:10000;
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:22px;
+  transition:opacity .9s var(--ease), visibility .9s;
+}
+#loader .lmark{font-family:'Bodoni Moda',serif; font-style:italic; font-size:2.2rem; color:var(--ink); opacity:0; animation:lfade 1.6s var(--ease) forwards;}
+@keyframes lfade{0%{opacity:0; letter-spacing:.3em;}100%{opacity:1; letter-spacing:0em;}}
+#loader .lbar{width:180px; height:1px; background:rgba(46,40,34,.12); position:relative; overflow:hidden;}
+#loader .lbar span{position:absolute; inset:0; background:var(--gold); transform:scaleX(0); transform-origin:left; animation:loadbar 1.7s var(--ease) forwards;}
+@keyframes loadbar{to{transform:scaleX(1);}}
+#loader.done{opacity:0; visibility:hidden;}
+
+/* Ribbon progress thread - light version */
+#ribbon-thread{position:fixed; top:0; right:30px; height:100vh; width:44px; z-index:40; pointer-events:none; display:flex; align-items:center; justify-content:center;}
+#ribbon-thread svg{height:64vh; width:44px; overflow:visible;}
+#ribbon-thread .track{stroke:rgba(46,40,34,.08); stroke-width:1.4; fill:none;}
+#ribbon-thread .fill{stroke:var(--gold-deep); stroke-width:1.8; fill:none; stroke-dasharray:1000; stroke-dashoffset:1000; stroke-linecap:round;}
+@media(max-width:900px){#ribbon-thread{display:none;}}
+
+/* Nav */
+header{position:fixed; top:0; left:0; width:100%; z-index:100; padding:28px 0; transition:background .5s var(--ease), padding .5s var(--ease), box-shadow .5s;}
+header.scrolled{background:rgba(253,251,247,.86); backdrop-filter:blur(16px); padding:16px 0; box-shadow:0 1px 0 rgba(46,40,34,.06);}
+header .wrap{display:flex; align-items:center; justify-content:space-between;}
+.brand{display:flex; align-items:center; gap:13px;}
+.brand-mark{width:38px; height:38px; border-radius:50%; background:conic-gradient(from 200deg, var(--gold-light), var(--gold), var(--rose-deep), var(--gold-light)); display:flex; align-items:center; justify-content:center;}
+.brand-mark span{width:30px; height:30px; border-radius:50%; background:var(--pearl); display:flex; align-items:center; justify-content:center; font-family:'Bodoni Moda',serif; font-style:italic; font-size:14px; color:var(--gold-deep);}
+.brand-text{font-family:'Bodoni Moda',serif; font-size:15.5px; letter-spacing:.08em; line-height:1.15;}
+.brand-text small{display:block; font-family:'Manrope',sans-serif; font-weight:600; font-size:8.5px; letter-spacing:.22em; color:var(--gold-deep); text-transform:uppercase; margin-top:3px;}
+nav.links{display:flex; gap:36px; font-size:13px; font-weight:500; letter-spacing:.02em;}
+nav.links a{position:relative; padding:4px 0; opacity:.75; transition:opacity .3s;}
+nav.links a::after{content:'';position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--gold-deep); transition:width .4s var(--ease);}
+nav.links a:hover{opacity:1;}
+nav.links a:hover::after{width:100%;}
+.nav-cta{
+  background:var(--ink); color:var(--pearl); padding:13px 26px; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+  border-radius:100px; transition:transform .4s var(--ease), background .4s var(--ease), box-shadow .4s;
+}
+.nav-cta:hover{transform:translateY(-2px); background:var(--gold-deep); box-shadow:0 12px 28px -10px rgba(173,136,72,.55);}
+.burger{display:none; flex-direction:column; gap:5px; width:26px;}
+.burger span{height:1px; background:var(--ink); width:100%; transition:transform .3s, opacity .3s;}
+@media(max-width:900px){ nav.links{display:none;} .nav-cta{display:none;} .burger{display:flex;} }
+
+/* Hero */
+.hero{position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; overflow:hidden; padding-top:110px;}
+.hero-content{position:relative; z-index:2; text-align:center; max-width:920px; margin:0 auto; padding:0 24px;}
+.hero-content .eyebrow{justify-content:center; margin-bottom:30px;}
+.hero-content .eyebrow::after{content:'';width:28px;height:1px;background:var(--gold);}
+h1.hero-title{font-size:clamp(2.7rem, 7.4vw, 6.4rem); font-weight:400; color:var(--ink);}
+h1.hero-title em{font-style:italic; color:var(--gold-deep); font-weight:400;}
+.hero-sub{margin:34px auto 46px; max-width:540px; font-size:17px; line-height:1.8; color:var(--ink-soft); font-weight:400;}
+.hero-ctas{display:flex; gap:18px; justify-content:center; flex-wrap:wrap;}
+.btn-primary{
+  background:var(--ink); color:var(--pearl); padding:18px 40px; font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  border-radius:100px; position:relative; transition:transform .4s var(--ease), box-shadow .4s var(--ease), background .4s;
+}
+.btn-primary:hover{transform:translateY(-3px); box-shadow:0 18px 34px -12px rgba(46,40,34,.35); background:var(--gold-deep);}
+.btn-ghost{
+  border:1px solid rgba(46,40,34,.2); padding:17px 36px; font-size:12.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  border-radius:100px; transition:border-color .35s, background .35s, transform .35s var(--ease);
+  background:rgba(255,255,255,.4);
+}
+.btn-ghost:hover{border-color:var(--gold-deep); background:var(--white); transform:translateY(-3px);}
+.scroll-cue{position:absolute; bottom:38px; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:10px; font-size:10px; font-weight:600; letter-spacing:.24em; text-transform:uppercase; color:var(--ink-soft);}
+.scroll-cue .line{width:1px; height:42px; background:linear-gradient(180deg, var(--gold-deep), transparent); animation:scrollcue 2.2s ease-in-out infinite;}
+@keyframes scrollcue{0%{transform:scaleY(0); transform-origin:top;}50%{transform:scaleY(1); transform-origin:top;}50.01%{transform-origin:bottom;}100%{transform:scaleY(0); transform-origin:bottom;}}
+
+/* hero floating ring accents */
+.hero-ring{position:absolute; border-radius:50%; border:1px solid rgba(201,165,103,.35); z-index:1;}
+.hero-ring.r1{width:220px; height:220px; top:16%; left:8%; animation:ringfloat 14s ease-in-out infinite;}
+.hero-ring.r2{width:140px; height:140px; bottom:14%; right:10%; animation:ringfloat 18s ease-in-out infinite reverse;}
+@keyframes ringfloat{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-26px) rotate(8deg);}}
+@media(max-width:768px){.hero-ring{display:none;}}
+
+/* Section generic */
+section{position:relative; padding:160px 0;}
+@media(max-width:768px){section{padding:110px 0;}}
+.section-head{max-width:660px; margin-bottom:84px;}
+.section-head h2{font-size:clamp(2.1rem, 4.6vw, 3.6rem); margin-top:24px;}
+.section-head h2 em{font-style:italic; color:var(--gold-deep);}
+.section-head p{margin-top:24px; color:var(--ink-soft); font-size:16.5px; line-height:1.8; max-width:520px;}
+
+/* Glass card base */
+.glass{background:rgba(255,255,255,.55); backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,.6); box-shadow:0 30px 60px -30px rgba(46,40,34,.18);}
+
+/* About */
+.about-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:100px; align-items:center;}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr; gap:56px;}}
+.portrait-frame{position:relative; aspect-ratio:4/5; border-radius:24px; overflow:hidden; background:linear-gradient(160deg, var(--sand), var(--rose) 60%, var(--gold-light) 130%);}
+.portrait-frame::before{content:''; position:absolute; inset:0; background:radial-gradient(circle at 25% 20%, rgba(255,255,255,.5), transparent 55%);}
+.portrait-frame .initials{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Bodoni Moda',serif; font-style:italic; font-size:7.5rem; color:rgba(255,255,255,.55);}
+.portrait-frame .caption{position:absolute; left:26px; bottom:26px; right:26px; display:flex; justify-content:space-between; align-items:flex-end; font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--white);}
+.about-copy p{font-size:16.5px; line-height:1.9; color:var(--ink-soft); margin-bottom:22px; font-weight:400;}
+.about-copy p:first-of-type{font-family:'Bodoni Moda',serif; font-size:1.55rem; line-height:1.5; color:var(--ink); font-style:italic;}
+.credentials{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:46px; border-top:1px solid rgba(46,40,34,.1); padding-top:34px;}
+@media(max-width:560px){.credentials{grid-template-columns:1fr 1fr;}}
+.credentials .cred b{display:block; font-family:'Bodoni Moda',serif; font-style:italic; font-size:2rem; color:var(--gold-deep); font-weight:400;}
+.credentials .cred span{font-size:11.5px; color:var(--ink-soft); line-height:1.4; display:block; margin-top:8px;}
+
+/* Transform band */
+.transform-band{padding:140px 0; text-align:center; position:relative;}
+.transform-band blockquote{font-family:'Bodoni Moda',serif; font-style:italic; font-weight:400; font-size:clamp(1.7rem,4.2vw,3rem); max-width:840px; margin:0 auto; line-height:1.42; color:var(--ink);}
+.transform-band cite{display:block; margin-top:30px; font-style:normal; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-deep);}
+
+/* Method */
+.method-list{position:relative; margin-top:24px;}
+.method-line{position:absolute; left:31px; top:16px; bottom:16px; width:1px; background:rgba(46,40,34,.1);}
+.method-line-fill{position:absolute; left:0; top:0; width:100%; height:0; background:var(--gold-deep); transform-origin:top;}
+.method-step{display:grid; grid-template-columns:64px 1fr; gap:32px; padding:36px 0; position:relative; z-index:1; border-bottom:1px solid rgba(46,40,34,.07);}
+.method-step:last-child{border-bottom:none;}
+.method-dot{width:16px; height:16px; border-radius:50%; border:1px solid var(--gold); background:var(--pearl); margin-top:7px; position:relative;}
+.method-dot::after{content:''; position:absolute; inset:4px; border-radius:50%; background:var(--gold-deep); opacity:0; transition:opacity .4s;}
+.method-step.active .method-dot::after{opacity:1;}
+.method-step h3{font-size:1.55rem; font-weight:400; display:flex; align-items:baseline; gap:16px;}
+.method-step h3 small{font-family:'Manrope',sans-serif; font-weight:700; font-size:11px; letter-spacing:.2em; color:var(--gold-deep);}
+.method-step p{margin-top:13px; color:var(--ink-soft); font-size:15.5px; line-height:1.8; max-width:580px;}
+
+/* Results */
+.results{position:relative;}
+.results-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:40px; text-align:center;}
+@media(max-width:900px){.results-grid{grid-template-columns:1fr 1fr; gap:52px 20px;}}
+.result-item .num{font-family:'Bodoni Moda',serif; font-style:italic; font-size:clamp(2.7rem,5.2vw,4.4rem); color:var(--gold-deep); font-weight:400; letter-spacing:-0.01em;}
+.result-item .lbl{margin-top:12px; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);}
+
+/* Testimonials */
+.testi-track-wrap{overflow:hidden; margin-top:74px; position:relative;}
+.testi-track-wrap::before, .testi-track-wrap::after{content:''; position:absolute; top:0; bottom:0; width:120px; z-index:2; pointer-events:none;}
+.testi-track-wrap::before{left:0; background:linear-gradient(90deg, var(--pearl), transparent);}
+.testi-track-wrap::after{right:0; background:linear-gradient(270deg, var(--pearl), transparent);}
+.testi-track{display:flex; gap:26px; width:max-content;}
+.testi-card{width:390px; flex-shrink:0; border-radius:20px; padding:40px; transition:transform .45s var(--ease), box-shadow .45s;}
+.testi-card:hover{transform:translateY(-8px);}
+.testi-stars{color:var(--gold-deep); font-size:14px; letter-spacing:3px;}
+.testi-card p{margin-top:22px; font-family:'Bodoni Moda',serif; font-style:italic; font-size:1.2rem; line-height:1.6; color:var(--ink);}
+.testi-who{display:flex; align-items:center; gap:13px; margin-top:28px; padding-top:22px; border-top:1px solid rgba(46,40,34,.08);}
+.testi-avatar{width:40px; height:40px; border-radius:50%; background:linear-gradient(150deg,var(--gold-light),var(--rose-deep)); display:flex; align-items:center; justify-content:center; font-family:'Bodoni Moda',serif; font-style:italic; font-size:15px; color:var(--white);}
+.testi-who b{font-size:13.5px; font-weight:600; display:block;}
+.testi-who span{font-size:11.5px; color:var(--ink-soft);}
+
+/* Before / After */
+.ba-wrap{max-width:780px; margin:74px auto 0;}
+.ba-slider{position:relative; aspect-ratio:16/10; border-radius:22px; overflow:hidden; user-select:none; box-shadow:0 40px 80px -40px rgba(46,40,34,.25);}
+.ba-layer{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Bodoni Moda',serif; font-style:italic; font-size:1.7rem;}
+.ba-before{background:linear-gradient(150deg,var(--sand),var(--rose)); color:rgba(46,40,34,.4);}
+.ba-after{background:linear-gradient(150deg,var(--gold-light),var(--sage)); color:rgba(46,40,34,.55); clip-path:inset(0 0 0 50%);}
+.ba-tag{position:absolute; top:20px; font-size:10.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; padding:9px 16px; background:rgba(255,255,255,.7); backdrop-filter:blur(8px); border-radius:100px;}
+.ba-tag.left{left:20px;} .ba-tag.right{right:20px;}
+.ba-handle{position:absolute; top:0; bottom:0; left:50%; width:2px; background:var(--white); cursor:ew-resize;}
+.ba-handle .knob{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:50px; height:50px; border-radius:50%; background:var(--white); display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 10px 30px rgba(46,40,34,.25);}
+.ba-handle .knob::before, .ba-handle .knob::after{content:''; width:6px; height:6px; border-left:1.5px solid var(--gold-deep); border-bottom:1.5px solid var(--gold-deep); transform:rotate(45deg);}
+.ba-handle .knob::after{transform:rotate(225deg);}
+.ba-caption{text-align:center; margin-top:24px; font-size:12.5px; color:var(--ink-soft);}
+
+/* Services */
+.services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:74px;}
+@media(max-width:900px){.services-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.services-grid{grid-template-columns:1fr;}}
+.service-card{border-radius:20px; padding:42px 32px; position:relative; overflow:hidden; transition:transform .45s var(--ease), box-shadow .45s;}
+.service-card:hover{transform:translateY(-8px);}
+.service-card .si{width:36px; height:36px; margin-bottom:26px;}
+.service-card h3{font-size:1.28rem; font-weight:400;}
+.service-card p{margin-top:13px; font-size:14.5px; line-height:1.75; color:var(--ink-soft);}
+
+/* Pricing */
+.plans-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:74px;}
+@media(max-width:900px){.plans-grid{grid-template-columns:1fr; max-width:440px; margin-left:auto; margin-right:auto;}}
+.plan-card{padding:46px 36px; border-radius:24px; position:relative; transition:transform .45s var(--ease), box-shadow .45s; display:flex; flex-direction:column;}
+.plan-card:hover{transform:translateY(-10px);}
+.plan-card.feat{background:linear-gradient(165deg, var(--gold-light), var(--pearl) 60%); box-shadow:0 40px 80px -30px rgba(173,136,72,.35);}
+.plan-tag{position:absolute; top:-14px; left:36px; background:var(--ink); color:var(--pearl); font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; padding:7px 16px; border-radius:100px;}
+.plan-card h3{font-size:1.35rem; font-weight:400;}
+.plan-card .price{font-family:'Bodoni Moda',serif; font-style:italic; font-size:2rem; color:var(--gold-deep); margin:20px 0 6px;}
+.plan-card .price small{font-family:'Manrope',sans-serif; font-style:normal; font-size:12px; color:var(--ink-soft);}
+.plan-card ul{list-style:none; margin:28px 0 34px; flex:1;}
+.plan-card ul li{font-size:14px; color:var(--ink-soft); padding:11px 0; border-top:1px solid rgba(46,40,34,.08); display:flex; gap:10px;}
+.plan-card ul li::before{content:'✦'; color:var(--gold-deep); font-size:10px;}
+.plan-card .btn-ghost, .plan-card .btn-primary{width:100%; text-align:center;}
+
+/* FAQ */
+.faq-list{max-width:780px; margin-top:64px;}
+.faq-item{border-bottom:1px solid rgba(46,40,34,.1);}
+.faq-q{display:flex; justify-content:space-between; align-items:center; padding:28px 0; font-size:1.1rem; font-family:'Bodoni Moda',serif; cursor:pointer;}
+.faq-q .plus{width:16px; height:16px; position:relative; flex-shrink:0; margin-left:20px;}
+.faq-q .plus::before, .faq-q .plus::after{content:''; position:absolute; background:var(--gold-deep); transition:transform .35s var(--ease);}
+.faq-q .plus::before{top:50%; left:0; width:100%; height:1px; transform:translateY(-50%);}
+.faq-q .plus::after{left:50%; top:0; width:1px; height:100%; transform:translateX(-50%);}
+.faq-item.open .plus::after{transform:translateX(-50%) rotate(90deg); opacity:0;}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .5s var(--ease);}
+.faq-a p{padding-bottom:28px; font-size:15px; line-height:1.8; color:var(--ink-soft); max-width:640px;}
+
+/* Final CTA */
+.final-cta{text-align:center; padding:180px 0; position:relative;}
+.final-cta h2{font-size:clamp(2.3rem,5.6vw,4.6rem); position:relative; z-index:1;}
+.final-cta h2 em{font-style:italic; color:var(--gold-deep);}
+.final-cta > .wrap > p{margin:28px auto 48px; max-width:500px; color:var(--ink-soft); font-size:16.5px; line-height:1.8; position:relative; z-index:1;}
+
+/* Form */
+.price-form{max-width:480px; margin:0 auto; position:relative; z-index:1;}
+.price-form .row{display:flex; gap:14px; margin-bottom:14px;}
+@media(max-width:520px){.price-form .row{flex-direction:column;}}
+.price-form input{width:100%; background:rgba(255,255,255,.7); border:1px solid rgba(46,40,34,.14); color:var(--ink); padding:17px 20px; font-size:14px; font-family:'Manrope',sans-serif; border-radius:100px; transition:border-color .35s, background .35s;}
+.price-form input::placeholder{color:var(--ink-soft); opacity:.6;}
+.price-form input:focus{outline:none; border-color:var(--gold-deep); background:var(--white);}
+.price-form button{width:100%; margin-top:8px;}
+.form-note{margin-top:18px; font-size:11.5px; color:var(--ink-soft);}
+.form-success{display:none; margin-top:18px; font-size:13px; color:var(--sage-deep); font-weight:600;}
+
+/* Footer */
+footer{padding:76px 0 36px; border-top:1px solid rgba(46,40,34,.08); position:relative;}
+.foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:44px; margin-bottom:54px;}
+.foot-brand .brand{margin-bottom:18px;}
+.foot-brand p{font-size:13px; color:var(--ink-soft); max-width:290px; line-height:1.75;}
+.foot-col h4{font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:20px;}
+.foot-col a{display:block; font-size:14px; color:var(--ink-soft); margin-bottom:13px; transition:color .3s;}
+.foot-col a:hover{color:var(--gold-deep);}
+.foot-bottom{display:flex; justify-content:space-between; font-size:12px; color:var(--ink-soft); flex-wrap:wrap; gap:12px; border-top:1px solid rgba(46,40,34,.08); padding-top:28px;}
+
+/* WhatsApp floating button */
+.wa-float{position:fixed; bottom:28px; right:28px; z-index:80; width:60px; height:60px; border-radius:50%; background:var(--ink); display:flex; align-items:center; justify-content:center; box-shadow:0 16px 36px -10px rgba(46,40,34,.5); transition:transform .4s var(--ease), background .4s;}
+.wa-float:hover{transform:scale(1.08); background:var(--gold-deep);}
+.wa-float svg{width:27px; height:27px;}
+
+.reveal{opacity:0; transform:translateY(40px); transition:opacity 1s var(--ease-soft), transform 1s var(--ease-soft);}
+.reveal.in-view{opacity:1; transform:translateY(0);}
+/* Failsafe: if JS never runs (blocked/slow), force everything visible after a short pause */
+.reveal{animation:forceShow 0s linear 2.5s forwards;}
+@keyframes forceShow{to{opacity:1; transform:translateY(0);}}
+#loader{animation:forceHide 0s linear 3s forwards;}
+@keyframes forceHide{to{opacity:0; visibility:hidden;}}
+
+
+/* Mobile nav drawer */
+.mobile-nav{position:fixed; inset:0; background:var(--pearl); z-index:99; display:flex; flex-direction:column; justify-content:center; padding:44px; transform:translateY(-100%); transition:transform .55s var(--ease); gap:28px;}
+.mobile-nav.open{transform:translateY(0);}
+.mobile-nav a{font-family:'Bodoni Moda',serif; font-size:2.1rem;}
+.mobile-nav .btn-primary{margin-top:22px; align-self:flex-start;}
+</style>
+<noscript><style>#loader{display:none !important;} .reveal{opacity:1 !important; transform:none !important; animation:none !important;} #ribbon-thread{display:none !important;} .cursor,.cursor-ring{display:none !important;} body{cursor:auto !important;}</style></noscript>
+</head>
+<body>
+
+<div class="ambient"><div class="blob blob1"></div><div class="blob blob2"></div><div class="blob blob3"></div></div>
+
+<div id="loader">
+  <div class="lmark">Oficina do Corpo</div>
+  <div class="lbar"><span></span></div>
+</div>
+
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<div id="ribbon-thread">
+  <svg viewBox="0 0 44 700" preserveAspectRatio="none">
+    <path class="track" d="M22 0 C 8 90, 38 180, 22 270 C 6 360, 38 450, 22 540 C 12 590, 22 650, 22 700"/>
+    <path class="fill" id="ribbonFill" d="M22 0 C 8 90, 38 180, 22 270 C 6 360, 38 450, 22 540 C 12 590, 22 650, 22 700"/>
+  </svg>
+</div>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-mark"><span>OC</span></div>
+      <div class="brand-text">Oficina do Corpo<small>Estética · Recovery · Performance</small></div>
+    </div>
+    <nav class="links">
+      <a href="#metodo">Método</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#planos">Investimento</a>
+      <a href="#faq">Dúvidas</a>
+    </nav>
+    <a href="#contato" class="nav-cta">Agendar avaliação</a>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="#metodo">Método</a>
+  <a href="#resultados">Resultados</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#planos">Investimento</a>
+  <a href="#faq">Dúvidas</a>
+  <a href="#contato" class="btn-primary">Agendar avaliação</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ring r1"></div>
+  <div class="hero-ring r2"></div>
+  <div class="hero-content">
+    <div class="eyebrow">São Luís — MA</div>
+    <h1 class="hero-title" id="heroTitle">Seu corpo pede<br>leveza. <em>Nós escutamos.</em></h1>
+    <p class="hero-sub">Oficina do Corpo une estética avançada, ciência da recuperação e presença genuína — para quem entende que cuidar de si é, antes de tudo, um gesto de respeito.</p>
+    <div class="hero-ctas">
+      <a href="#contato" class="btn-primary">Agendar avaliação</a>
+      <a href="#metodo" class="btn-ghost">Conhecer o método</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Deslize</span><div class="line"></div></div>
+</section>
+
+<!-- AUTORIDADE -->
+<section id="sobre">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="portrait-frame">
+        <div class="initials">MG</div>
+        <div class="caption"><span>Manu Gonçalves</span><span>Fundadora</span></div>
+      </div>
+    </div>
+    <div class="about-copy reveal">
+      <div class="eyebrow">Quem assina cada protocolo</div>
+      <p style="margin-top:28px;">"Desde 2022, eu acredito que cuidar de um corpo é entender sua história inteira — não só a pele que se vê."</p>
+      <p>Manu Gonçalves é especialista em estética e massoterapia, e construiu a Oficina do Corpo como resposta a uma pergunta simples: por que tratar recuperação, performance e beleza como coisas separadas? Aqui, técnica e sensibilidade caminham juntas — do primeiro diagnóstico ao resultado que se sente na pele.</p>
+      <p>Presença ativa em congressos como o Estética In São Paulo, atualização constante em protocolos avançados, e um compromisso simples: nenhuma cliente sai sem entender o porquê de cada etapa do seu cuidado.</p>
+      <div class="credentials">
+        <div class="cred"><b>2022</b><span>Ano de fundação da Oficina do Corpo</span></div>
+        <div class="cred"><b>1.600+</b><span>Pessoas acompanhadas nas redes e na clínica</span></div>
+        <div class="cred"><b>100%</b><span>Protocolos personalizados por avaliação</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION BAND -->
+<div class="transform-band">
+  <div class="wrap">
+    <blockquote class="reveal">"Não é sobre esconder o corpo. É sobre devolver a ele a função, a leveza e a confiança que já eram dele, por direito."</blockquote>
+    <cite>— Princípio da Oficina do Corpo</cite>
+  </div>
+</div>
+
+<!-- MÉTODO -->
+<section id="metodo">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">O método</div>
+      <h2>Quatro etapas.<br><em>Nenhum atalho.</em></h2>
+      <p>Cada protocolo nasce de uma avaliação real — não de um pacote padrão. É assim que resultado vira consistência.</p>
+    </div>
+    <div class="method-list">
+      <div class="method-line"><div class="method-line-fill" id="methodFill"></div></div>
+      <div class="method-step" data-step>
+        <div class="method-dot"></div>
+        <div><h3><small>01</small>Diagnóstico corporal</h3><p>Avaliação postural, de composição e de pele — o ponto de partida real do seu protocolo, não um formulário genérico.</p></div>
+      </div>
+      <div class="method-step" data-step>
+        <div class="method-dot"></div>
+        <div><h3><small>02</small>Protocolo sob medida</h3><p>Cruzamento de técnicas de estética avançada e fisioterapia para montar um plano único — em ritmo, intensidade e objetivo.</p></div>
+      </div>
+      <div class="method-step" data-step>
+        <div class="method-dot"></div>
+        <div><h3><small>03</small>Execução & recovery</h3><p>Sessões conduzidas com precisão técnica e ambiente sensorial pensado para o corpo responder — e descansar.</p></div>
+      </div>
+      <div class="method-step" data-step>
+        <div class="method-dot"></div>
+        <div><h3><small>04</small>Performance sustentada</h3><p>Reavaliação periódica e ajuste fino do plano, para que o resultado não seja um pico — seja um novo padrão.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados" class="results">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Resultados</div>
+      <h2>Números que <em>sustentam</em> a promessa.</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result-item reveal"><div class="num" data-count="98">0</div><div class="lbl">% de satisfação declarada</div></div>
+      <div class="result-item reveal"><div class="num" data-count="1600" data-suffix="+">0</div><div class="lbl">Pessoas acompanhadas</div></div>
+      <div class="result-item reveal"><div class="num" data-count="2022">0</div><div class="lbl">Desde</div></div>
+      <div class="result-item reveal"><div class="num" data-count="4" data-suffix=" etapas">0</div><div class="lbl">Método exclusivo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Depoimentos</div>
+      <h2>A experiência, nas <em>palavras</em> de quem sentiu.</h2>
+    </div>
+  </div>
+  <div class="testi-track-wrap">
+    <div class="testi-track" id="testiTrack">
+      <div class="testi-card glass"><div class="testi-stars">★★★★★</div><p>Cheguei achando que era mais uma clínica de estética. Saí entendendo o porquê de cada técnica no meu corpo.</p><div class="testi-who"><div class="testi-avatar">C</div><div><b>Camila R.</b><span>Cliente desde 2023</span></div></div></div>
+      <div class="testi-card glass"><div class="testi-stars">★★★★★</div><p>O ambiente é outro nível, mas o que me fez ficar foi a seriedade técnica por trás de cada sessão.</p><div class="testi-who"><div class="testi-avatar">J</div><div><b>Juliana M.</b><span>Cliente desde 2024</span></div></div></div>
+      <div class="testi-card glass"><div class="testi-stars">★★★★★</div><p>Senti diferença na postura antes mesmo da estética aparecer. É recuperação de verdade, não só relaxamento.</p><div class="testi-who"><div class="testi-avatar">A</div><div><b>Ana Paula S.</b><span>Cliente desde 2023</span></div></div></div>
+      <div class="testi-card glass"><div class="testi-stars">★★★★★</div><p>Manu explica cada etapa como quem realmente domina o assunto. Isso muda a forma como eu confio no processo.</p><div class="testi-who"><div class="testi-avatar">F</div><div><b>Fernanda L.</b><span>Cliente desde 2022</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES E DEPOIS -->
+<section id="antes-depois">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin:0 auto 0; text-align:center; max-width:600px;">
+      <div class="eyebrow" style="justify-content:center;">Antes & depois</div>
+      <h2>Arraste. Veja a <em>diferença</em>.</h2>
+    </div>
+    <div class="ba-wrap reveal">
+      <div class="ba-slider" id="baSlider">
+        <div class="ba-layer ba-before">Antes</div>
+        <div class="ba-layer ba-after" id="baAfter">Depois</div>
+        <span class="ba-tag left">Antes</span>
+        <span class="ba-tag right">Depois</span>
+        <div class="ba-handle" id="baHandle"><div class="knob"></div></div>
+      </div>
+      <p class="ba-caption">Imagem ilustrativa do slider — substitua pelas fotos reais das transformações da clínica.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Serviços & protocolos</div>
+      <h2>Estética, recovery e performance — <em>sob o mesmo teto</em>.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+  <div class="services-grid">
+    <div class="service-card glass reveal">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="#AD8848" stroke-width="1.3"><circle cx="12" cy="6" r="3"/><path d="M12 9v6M8 21l4-6 4 6"/></svg>
+      <h3>Estética corporal</h3><p>Protocolos avançados de contorno, firmeza e textura de pele, sempre a partir de avaliação individual.</p>
+    </div>
+    <div class="service-card glass reveal">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="#AD8848" stroke-width="1.3"><path d="M4 12h4l2-6 4 12 2-6h4"/></svg>
+      <h3>Fisioterapia & recovery</h3><p>Técnicas de recuperação muscular e articular para quem treina forte e vive em ritmo intenso.</p>
+    </div>
+    <div class="service-card glass reveal">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="#AD8848" stroke-width="1.3"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg>
+      <h3>Drenagem terapêutica</h3><p>Manuais e mecânicas, para circulação, redução de edemas e sensação imediata de leveza.</p>
+    </div>
+    <div class="service-card glass reveal">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="#AD8848" stroke-width="1.3"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M4 10h16M10 10v10"/></svg>
+      <h3>Terapias corporais</h3><p>Massoterapia especializada para dor, tensão e restauração — o corpo tratado como um sistema, não uma parte.</p>
+    </div>
+    <div class="service-card glass reveal">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="#AD8848" stroke-width="1.3"><path d="M12 2l2.5 6.5L21 11l-6.5 2.5L12 20l-2.5-6.5L3 11l6.5-2.5z"/></svg>
+      <h3>Protocolos enzimáticos</h3><p>Aplicações específicas para gordura localizada e flacidez, com plano de sessões acompanhado de perto.</p>
+    </div>
+    <div class="service-card glass reveal">
+      <svg class="si" viewBox="0 0 24 24" fill="none" stroke="#AD8848" stroke-width="1.3"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
+      <h3>Atendimento domiciliar</h3><p>A mesma técnica e o mesmo cuidado da Oficina, levados até você quando o dia não permite deslocamento.</p>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Investimento</div>
+      <h2>Planos pensados para <em>consistência</em>.</h2>
+      <p>Valores exatos e formas de pagamento são enviados por WhatsApp após uma breve conversa, para que a proposta já chegue ajustada ao seu objetivo.</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card glass reveal">
+        <h3>Sessão avulsa</h3>
+        <div class="price">Sob consulta</div>
+        <ul>
+          <li>Avaliação corporal completa</li>
+          <li>1 protocolo à sua escolha</li>
+          <li>Indicação de plano de continuidade</li>
+        </ul>
+        <a href="#contato" class="btn-ghost">Solicitar tabela</a>
+      </div>
+      <div class="plan-card feat reveal">
+        <div class="plan-tag">Mais procurado</div>
+        <h3>Plano Recovery</h3>
+        <div class="price">Sob consulta</div>
+        <ul>
+          <li>Protocolo mensal personalizado</li>
+          <li>Estética + fisioterapia combinadas</li>
+          <li>Acompanhamento de evolução</li>
+          <li>Prioridade de agenda</li>
+        </ul>
+        <a href="#contato" class="btn-primary">Solicitar tabela</a>
+      </div>
+      <div class="plan-card glass reveal">
+        <h3>Plano Performance</h3>
+        <div class="price">Sob consulta</div>
+        <ul>
+          <li>Protocolo trimestral intensivo</li>
+          <li>Reavaliações periódicas</li>
+          <li>Atendimento domiciliar incluso</li>
+          <li>Suporte direto com Manu</li>
+        </ul>
+        <a href="#contato" class="btn-ghost">Solicitar tabela</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Perguntas frequentes</div>
+      <h2>Antes de <em>agendar</em>.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item open">
+        <div class="faq-q"><span>Preciso de avaliação antes de escolher um protocolo?</span><span class="plus"></span></div>
+        <div class="faq-a"><p>Sim — toda cliente passa por uma avaliação corporal antes de qualquer plano ser definido. É assim que garantimos que o protocolo é seu, não um pacote genérico.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Vocês atendem em domicílio?</span><span class="plus"></span></div>
+        <div class="faq-a"><p>Sim, para protocolos selecionados. A disponibilidade é confirmada durante o agendamento, conforme sua região em São Luís.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Em quanto tempo vejo resultado?</span><span class="plus"></span></div>
+        <div class="faq-a"><p>Depende do protocolo e do objetivo — por isso os planos são pensados em ciclos (mensal ou trimestral), não em sessões isoladas.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Como recebo a tabela de valores?</span><span class="plus"></span></div>
+        <div class="faq-a"><p>Direto no seu WhatsApp, pelo formulário abaixo ou pelo botão de contato — sem burocracia.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="contato" class="final-cta">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center;">Vamos começar</div>
+    <h2 style="margin-top:24px;">Seu corpo já pediu essa<br>mudança. <em>Agora é hora.</em></h2>
+    <p>Preencha os dados abaixo e receba a tabela completa de protocolos e valores diretamente no seu WhatsApp.</p>
+    <form class="price-form" id="priceForm">
+      <div class="row">
+        <input type="text" id="fName" placeholder="Seu nome" required>
+        <input type="tel" id="fPhone" placeholder="WhatsApp (com DDD)" required>
+      </div>
+      <input type="text" id="fInterest" placeholder="Qual protocolo te interessa? (opcional)">
+      <button type="submit" class="btn-primary">Receber tabela no WhatsApp</button>
+      <div class="form-note">Seus dados são usados apenas para este contato. Nenhuma cobrança é feita neste formulário.</div>
+      <div class="form-success" id="formSuccess">Perfeito. Abrindo seu WhatsApp com a mensagem já preparada…</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><div class="brand-mark"><span>OC</span></div><div class="brand-text">Oficina do Corpo</div></div>
+        <p>Um novo conceito em estética e fisioterapia. Experiências exclusivas de cuidado e recuperação em São Luís, MA.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <a href="#metodo">Método</a><a href="#servicos">Serviços</a><a href="#planos">Investimento</a><a href="#faq">Dúvidas</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <a href="https://instagram.com/oficinadocorpo.slz" target="_blank" rel="noopener">@oficinadocorpo.slz</a>
+        <a href="#contato">Agendar avaliação</a>
+        <a href="#">São Luís, MA</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Oficina do Corpo. Todos os direitos reservados.</span>
+      <span>Estética · Recovery · Performance</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="waFloat" href="https://wa.me/5598900000000?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20Oficina%20do%20Corpo." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#FDFBF7"><path d="M16 2C8.3 2 2 8.3 2 16c0 2.6.7 5 2 7.2L2 30l7-1.9c2.1 1.2 4.5 1.9 7 1.9 7.7 0 14-6.3 14-14S23.7 2 16 2zm0 25.5c-2.2 0-4.4-.6-6.2-1.7l-.4-.3-4.1 1.1 1.1-4-.3-.4C4.7 20.3 4 18.2 4 16c0-6.6 5.4-12 12-12s12 5.4 12 12-5.4 11.5-12 11.5zm6.4-8.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7.2-.2.4-.4.6-.7.2-.2.3-.4.4-.6.1-.3 0-.5 0-.7-.1-.2-.8-2-1.1-2.7-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1.8.3 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+/* ============================================================
+   Oficina do Corpo — vanilla JS, zero dependências externas.
+   Tudo roda sem CDN, sem bibliotecas, para funcionar em
+   qualquer navegador/rede, inclusive previews restritivos.
+   ============================================================ */
+(function(){
+  'use strict';
+  try {
+
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    var raf = window.requestAnimationFrame || function(cb){ return setTimeout(cb, 16); };
+
+    /* ---------- Loader ---------- */
+    function hideLoader(){
+      var loader = document.getElementById('loader');
+      if(loader){ loader.classList.add('done'); }
+    }
+    if(document.readyState === 'complete'){
+      setTimeout(hideLoader, 300);
+    } else {
+      window.addEventListener('load', function(){ setTimeout(hideLoader, 400); });
+    }
+    // Hard safety net regardless of load event timing
+    setTimeout(hideLoader, 2500);
+
+    /* ---------- Custom cursor (desktop only) ---------- */
+    if(!isTouch){
+      var cursor = document.querySelector('.cursor');
+      var ring = document.querySelector('.cursor-ring');
+      if(cursor && ring){
+        var mx=0,my=0, rx=0, ry=0;
+        window.addEventListener('mousemove', function(e){ mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+        function cursorLoop(){ rx += (mx-rx)*0.16; ry += (my-ry)*0.16; ring.style.left=rx+'px'; ring.style.top=ry+'px'; raf(cursorLoop); }
+        raf(cursorLoop);
+        document.querySelectorAll('a, button, .faq-q, .ba-handle, input').forEach(function(el){
+          el.addEventListener('mouseenter', function(){ ring.classList.add('hover'); });
+          el.addEventListener('mouseleave', function(){ ring.classList.remove('hover'); });
+        });
+      }
+    }
+
+    /* ---------- Header scroll state ---------- */
+    var header = document.getElementById('siteHeader');
+    function onScrollHeader(){ if(header){ header.classList.toggle('scrolled', window.scrollY > 50); } }
+    window.addEventListener('scroll', onScrollHeader, {passive:true});
+    onScrollHeader();
+
+    /* ---------- Mobile nav ---------- */
+    var burger = document.getElementById('burgerBtn');
+    var mobileNav = document.getElementById('mobileNav');
+    if(burger && mobileNav){
+      burger.addEventListener('click', function(){ mobileNav.classList.toggle('open'); });
+      mobileNav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mobileNav.classList.remove('open'); }); });
+    }
+
+    /* ---------- Hero parallax on blobs (desktop only) ---------- */
+    var heroEl = document.querySelector('.hero');
+    var blob1 = document.querySelector('.blob1');
+    var blob2 = document.querySelector('.blob2');
+    if(heroEl && !isTouch && !prefersReduced){
+      heroEl.addEventListener('mousemove', function(e){
+        var cx = (e.clientX/window.innerWidth - .5) * 30;
+        var cy = (e.clientY/window.innerHeight - .5) * 30;
+        if(blob1){ blob1.style.transform = 'translate('+(cx*0.6)+'px,'+(cy*0.6)+'px)'; }
+        if(blob2){ blob2.style.transform = 'translate('+(-cx*0.5)+'px,'+(cy*0.4)+'px)'; }
+      });
+    }
+
+    /* ---------- Reveal on scroll (IntersectionObserver) ---------- */
+    var revealEls = document.querySelectorAll('.reveal');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){ entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+      revealEls.forEach(function(el){ io.observe(el); });
+    } else {
+      revealEls.forEach(function(el){ el.classList.add('in-view'); });
+    }
+
+    /* ---------- Ribbon progress thread ---------- */
+    var fill = document.getElementById('ribbonFill');
+    if(fill && fill.getTotalLength){
+      var pathLen = fill.getTotalLength();
+      fill.style.strokeDasharray = pathLen;
+      fill.style.strokeDashoffset = pathLen;
+      function updateRibbon(){
+        var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = scrollable > 0 ? Math.min(1, Math.max(0, window.scrollY / scrollable)) : 0;
+        fill.style.strokeDashoffset = pathLen - (pathLen * progress);
+      }
+      window.addEventListener('scroll', updateRibbon, {passive:true});
+      window.addEventListener('resize', updateRibbon);
+      updateRibbon();
+    }
+
+    /* ---------- Method line fill + step activation ---------- */
+    var methodList = document.querySelector('.method-list');
+    var methodFill = document.getElementById('methodFill');
+    var methodSteps = document.querySelectorAll('.method-step');
+    function updateMethod(){
+      if(!methodList || !methodFill) return;
+      var rect = methodList.getBoundingClientRect();
+      var vh = window.innerHeight;
+      var total = rect.height;
+      var start = vh * 0.75;
+      var progressed = start - rect.top;
+      var pct = total > 0 ? Math.min(1, Math.max(0, progressed / total)) : 0;
+      methodFill.style.height = (pct*100)+'%';
+      methodSteps.forEach(function(step){
+        var r = step.getBoundingClientRect();
+        var active = r.top < vh*0.65 && r.bottom > vh*0.2;
+        step.classList.toggle('active', active);
+      });
+    }
+    window.addEventListener('scroll', updateMethod, {passive:true});
+    window.addEventListener('resize', updateMethod);
+    updateMethod();
+
+    /* ---------- Counters ---------- */
+    var counters = document.querySelectorAll('.result-item .num');
+    if('IntersectionObserver' in window){
+      var counterIO = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            animateCounter(entry.target);
+            counterIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(function(num){ counterIO.observe(num); });
+    } else {
+      counters.forEach(animateCounter);
+    }
+    function animateCounter(num){
+      var target = parseFloat(num.getAttribute('data-count')) || 0;
+      var suffix = num.getAttribute('data-suffix') || '';
+      var duration = 1600;
+      var startTime = null;
+      function step(ts){
+        if(!startTime) startTime = ts;
+        var progress = Math.min(1, (ts - startTime) / duration);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        num.textContent = Math.floor(eased * target) + suffix;
+        if(progress < 1){ raf(step); } else { num.textContent = target + suffix; }
+      }
+      raf(step);
+    }
+
+    /* ---------- Testimonials infinite marquee ---------- */
+    var track = document.getElementById('testiTrack');
+    if(track){
+      track.innerHTML += track.innerHTML;
+      var marqueeX = 0;
+      function marquee(){
+        if(!prefersReduced){
+          marqueeX -= 0.4;
+          if(Math.abs(marqueeX) >= track.scrollWidth/2){ marqueeX = 0; }
+          track.style.transform = 'translateX('+marqueeX+'px)';
+        }
+        raf(marquee);
+      }
+      raf(marquee);
+    }
+
+    /* ---------- Before/After slider ---------- */
+    var baSlider = document.getElementById('baSlider');
+    var baAfter = document.getElementById('baAfter');
+    var baHandle = document.getElementById('baHandle');
+    if(baSlider && baAfter && baHandle){
+      var dragging = false;
+      function setBA(pct){
+        pct = Math.max(2, Math.min(98, pct));
+        baAfter.style.clipPath = 'inset(0 0 0 '+pct+'%)';
+        baHandle.style.left = pct+'%';
+      }
+      function baFromEvent(e){
+        var rect = baSlider.getBoundingClientRect();
+        var clientX = (e.touches && e.touches[0]) ? e.touches[0].clientX : e.clientX;
+        var pct = ((clientX-rect.left)/rect.width)*100;
+        setBA(pct);
+      }
+      baHandle.addEventListener('mousedown', function(){ dragging=true; });
+      baHandle.addEventListener('touchstart', function(){ dragging=true; }, {passive:true});
+      window.addEventListener('mouseup', function(){ dragging=false; });
+      window.addEventListener('touchend', function(){ dragging=false; });
+      window.addEventListener('mousemove', function(e){ if(dragging) baFromEvent(e); });
+      window.addEventListener('touchmove', function(e){ if(dragging) baFromEvent(e); }, {passive:true});
+      baSlider.addEventListener('click', baFromEvent);
+    }
+
+    /* ---------- FAQ accordion ---------- */
+    document.querySelectorAll('.faq-item').forEach(function(item){
+      var q = item.querySelector('.faq-q');
+      var a = item.querySelector('.faq-a');
+      if(!q || !a) return;
+      if(item.classList.contains('open')){ a.style.maxHeight = a.scrollHeight+'px'; }
+      q.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function(i){
+          i.classList.remove('open');
+          var ia = i.querySelector('.faq-a');
+          if(ia) ia.style.maxHeight = 0;
+        });
+        if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; }
+      });
+    });
+
+    /* ---------- Price form -> WhatsApp ---------- */
+    var WA_NUMBER = '5598900000000'; // TODO: substituir pelo número real da Oficina do Corpo
+    var priceForm = document.getElementById('priceForm');
+    if(priceForm){
+      priceForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        var name = document.getElementById('fName').value.trim();
+        var phone = document.getElementById('fPhone').value.trim();
+        var interest = document.getElementById('fInterest').value.trim();
+        if(!name || !phone) return;
+        var msg = 'Olá! Meu nome é '+name+'. Meu WhatsApp é '+phone+'.'+(interest ? ' Tenho interesse em: '+interest+'.' : '')+' Gostaria de receber a tabela de valores da Oficina do Corpo.';
+        var url = 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
+        var success = document.getElementById('formSuccess');
+        if(success) success.style.display='block';
+        setTimeout(function(){ window.open(url, '_blank'); }, 400);
+      });
+    }
+
+  } catch(err){
+    // Failsafe: se qualquer coisa falhar, garante que o conteúdo apareça
+    var l = document.getElementById('loader'); if(l) l.classList.add('done');
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in-view'); });
+    if(window.console && console.error){ console.error('Oficina do Corpo — erro de script:', err); }
+  }
+})();
+</script>
+</body>
+</html>
