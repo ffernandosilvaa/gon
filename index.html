@@ -413,7 +413,7 @@ footer{padding:76px 0 36px; border-top:1px solid rgba(46,40,34,.08); position:re
   <div class="hero-ring r2"></div>
   <div class="hero-content">
     <div class="eyebrow">São Luís — MA</div>
-    <h1 class="hero-title" id="heroTitle">Seu corpo dá<br>Sinais. <em>Nós sabemos ouvir.</em></h1>
+    <h1 class="hero-title" id="heroTitle">Seu corpo dá<br>sinais. <em>Nós sabemos ouvir.</em></h1>
     <p class="hero-sub">Na Oficina do Corpo, cada atendimento é uma experiência personalizada de recuperação, estética e bem-estar. Unimos técnicas corporais, drenagem linfática e terapias manuais para aliviar tensões, restaurar o equilíbrio e devolver ao seu corpo a leveza que ele merece.</p>
     <div class="hero-ctas">
       <a href="#contato" class="btn-primary">Agendar avaliação</a>
@@ -434,7 +434,7 @@ footer{padding:76px 0 36px; border-top:1px solid rgba(46,40,34,.08); position:re
     </div>
     <div class="about-copy reveal">
       <div class="eyebrow">Quem assina cada protocolo</div>
-      <p style="margin-top:28px;">"Cada corpo carrega uma história. Meu trabalho é saber ouvi-la. Desde 2022, Manu Gonçalves dedica seu olhar, suas mãos e técnicas a um propósito: entender o que cada corpo precisa antes de indicar qualquer cuidado."</p>
+      <p style="margin-top:28px;">"Cada corpo carrega uma história. Meu trabalho é saber ouvi-la." Desde 2022, Manu Gonçalves dedica seu olhar, suas mãos e técnicas a um propósito: entender o que cada corpo precisa antes de indicar qualquer cuidado."</p>
       <p>Especialista em estética e terapias corporais, Manu acredita que resultados verdadeiros nascem da combinação entre conhecimento técnico, escuta e personalização. Na Oficina do Corpo, cada protocolo é construido respeitando a individualidade de cada pessoa, unindo técnicas avançadas, sensibilidade e atenção aos detalhes para proporcionar uma experiência de recuperação, equilíbrio e bem-estar.</p>
       <p>Com presença em eventos e congressos de referência, como Estética In São Paulo, Manu mantém uma busca constante por atualização e aprimoramento. Seu compromisso é simples: cada cliente entender o próprio corpo, compreender seu cuidado e sentir que está sendo tratada de forma única.</p>
       <div class="credentials">
@@ -510,7 +510,6 @@ footer{padding:76px 0 36px; border-top:1px solid rgba(46,40,34,.08); position:re
   </div>
   <div class="testi-track-wrap" id="testiWrap">
     <div class="testi-track" id="testiTrack">
-      <div class="testi-card glass"><div class="testi-stars">★★★★★</div><p>Cheguei achando que era mais uma clínica de estética. Saí entendendo o porquê de cada técnica no meu corpo.</p><div class="testi-who"><div class="testi-avatar">C</div><div><b>Claudia S.</b><span>Cliente desde 2023</span></div></div></div>
       <div class="testi-card glass"><div class="testi-stars">★★★★★</div><p>O ambiente é outro nível, mas o que me fez ficar foi a seriedade técnica por trás de cada sessão.</p><div class="testi-who"><div class="testi-avatar">J</div><div><b>Juliana M.</b><span>Cliente desde 2024</span></div></div></div>
       <div class="testi-card glass"><div class="testi-stars">★★★★★</div><p>Senti diferença na postura antes mesmo da estética aparecer. É recuperação de verdade, não só relaxamento.</p><div class="testi-who"><div class="testi-avatar">A</div><div><b>Ana Paula S.</b><span>Cliente desde 2023</span></div></div></div>
       <div class="testi-card glass"><div class="testi-stars">★★★★★</div><p>Manu explica cada etapa como quem realmente domina o assunto. Isso muda a forma como eu confio no processo.</p><div class="testi-who"><div class="testi-avatar">F</div><div><b>Fernanda L.</b><span>Cliente desde 2022</span></div></div></div>
@@ -667,10 +666,10 @@ footer{padding:76px 0 36px; border-top:1px solid rgba(46,40,34,.08); position:re
     <p>Preencha os dados abaixo e receba a tabela completa de protocolos e valores diretamente no seu WhatsApp.</p>
     <form class="price-form" id="priceForm">
       <div class="row">
-        <input type="text" id="fName" placeholder="Manu Gonçalves" required>
-        <input type="tel" id="fPhone" placeholder="989881089630" required>
+        <input type="text" id="fName" placeholder="Nome" required>
+        <input type="tel" id="fPhone" placeholder="Qual protocolo te enteressa? (opcional)" required>
       </div>
-      <input type="text" id="fInterest" placeholder="Qual protocolo te interessa? (opcional)">
+      <input type="text" id="fInterest" placeholder="O que você busca hoje? (opcional)">
       <button type="submit" class="btn-primary">Receber tabela no WhatsApp</button>
       <div class="form-note">Seus dados são usados apenas para este contato. Nenhuma cobrança é feita neste formulário.</div>
       <div class="form-success" id="formSuccess">Perfeito. Abrindo seu WhatsApp com a mensagem já preparada…</div>
@@ -963,10 +962,16 @@ footer{padding:76px 0 36px; border-top:1px solid rgba(46,40,34,.08); position:re
       priceForm.addEventListener('submit', function(e){
         e.preventDefault();
         var name = document.getElementById('fName').value.trim();
-        var phone = document.getElementById('fPhone').value.trim();
-        var interest = document.getElementById('fInterest').value.trim();
-        if(!name || !phone) return;
-        var msg = 'Olá! Meu nome é '+name+'. Meu WhatsApp é '+phone+'.'+(interest ? ' Tenho interesse em: '+interest+'.' : '')+' Gostaria de receber a tabela de serviços.';
+var protocol = document.getElementById('fPhone').value.trim();
+var interest = document.getElementById('fInterest').value.trim();
+
+if(!name) return;
+
+var msg =
+'Olá! Meu nome é ' + name + '.' +
+(protocol ? ' Tenho interesse no protocolo: ' + protocol + '.' : '') +
+(interest ? ' O que busco hoje: ' + interest + '.' : '') +
+' Gostaria de receber a tabela completa de protocolos e valores.';
         var url = 'https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
         var success = document.getElementById('formSuccess');
         if(success) success.style.display='block';
